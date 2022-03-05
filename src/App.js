@@ -1,25 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import Appbar from './Screens/AppBar';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import CreateCard from './Screens/CreateCard';
+import DetailCard from './Screens/DetailCard';
+import ViewCard from './Screens/ViewCard';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
+    <Router >
+      <Appbar />
+      <Switch>
+        <Route exact path='/' component={CreateCard} />
+        <Route exact path='/DetailCard' component={DetailCard} />
+        <Route exact path='/ViewCard' component={ViewCard} />
+      
+      </Switch>
+    </Router>
+  )
+};
 export default App;
